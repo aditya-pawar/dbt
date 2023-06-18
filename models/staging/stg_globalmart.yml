@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: one unique row order per row
+    columns:
+      - name: orderid
+        description: the primary key for stg_orders
+      - name:  shipmode
+        description: '{{doc("shipmode")}}'
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - orderid
+            - productid
+
