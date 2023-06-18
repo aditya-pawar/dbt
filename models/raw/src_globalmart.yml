@@ -7,8 +7,10 @@ sources:
     schema: globalmart
     tables:
       - name: customers
+        identifier: customers
         description: customer table
       - name: orders
+        identifier: orders
         description: raw orders table
         columns:
           - name: orderId
@@ -25,6 +27,7 @@ sources:
             period: hour
         loaded_at_field: "to_timestamp(orderdate,'yyyy/mm/dd')"
       - name: product
+        identifier: product
         
 
 

@@ -16,9 +16,13 @@ select
     p.productid,
     p.category,
     p.productname,
-    p.subcategory
+    p.subcategory,
+    {{markup('ordersellingprice','ordercustprice')}} markup
+    -- ,{{target.name}}
 from {{ ref("raw_orders") }} o
 left join {{ ref("raw_customer") }} c
 on o.customerid = c.customerid
 left join {{ ref("raw_product") }} p
 on o.productid = p.productid
+{{limit_data_in_dev("to_timestamp(orderdate,'yyyy/mm/dd')")}}
+
