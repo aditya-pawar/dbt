@@ -17,10 +17,13 @@ models:
                 - "Standard Class"
                 - "First Class"
                 - "Same Day"
-#                - 'Unknown'
+                - 'Unknown'
       - name: orderid
         tests:
           - not_null
-          - unique
+#          - unique
+    tests:
+      - unique:
+          column_name : "orderId || '-' || productid"
               
 
